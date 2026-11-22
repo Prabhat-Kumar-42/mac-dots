@@ -184,7 +184,9 @@ default_orientation = "perpendicular"
 #   Use the display's UUID as the key (for example, from system profiler or via rift CLI).
 
 [settings.layout.gaps.outer]
-top = 8.0
+# Rift does not reserve space for SketchyBar. The bar capsule reaches about y=40
+# logical points on this display, so 16 points leaves an 8-point visible gap below it.
+top = 16.0
 left = 8.0
 bottom = 8.0
 right = 8.0
