@@ -66,7 +66,11 @@ auto_focus_blacklist = []
 #   "rift-cli subscribe cli --event windows_changed --command sh --args -c --args 'sketchybar --trigger rift_windows_changed RIFT_WORKSPACE_NAME=\"$RIFT_WORKSPACE_NAME\" RIFT_WINDOW_COUNT=\"$RIFT_WINDOW_COUNT\"'"
 # ]
 
-run_on_start = []
+run_on_start = [
+  "/opt/homebrew/bin/rift-cli subscribe cli --event workspace_changed --command /bin/sh --args -c --args '/opt/homebrew/bin/sketchybar --trigger rift_workspace_changed RIFT_EVENT_JSON=\"$RIFT_EVENT_JSON\"'",
+  "/opt/homebrew/bin/rift-cli subscribe cli --event windows_changed --command /bin/sh --args -c --args '/opt/homebrew/bin/sketchybar --trigger rift_workspace_changed RIFT_EVENT_JSON=\"$RIFT_EVENT_JSON\"'",
+  "/opt/homebrew/bin/rift-cli subscribe cli --event config_changed --command /bin/sh --args -c --args '/opt/homebrew/bin/sketchybar --trigger rift_workspace_changed'"
+]
 
 # Hot Reloading
 # - If true, rift will watch the config file for changes and reload automatically.
