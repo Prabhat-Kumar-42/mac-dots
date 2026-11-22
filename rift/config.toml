@@ -67,7 +67,8 @@ auto_focus_blacklist = []
 # ]
 
 run_on_start = [
-  "/opt/homebrew/bin/rift-cli subscribe cli --event workspace_changed --command /bin/sh --args -c --args '/opt/homebrew/bin/sketchybar --trigger rift_workspace_changed RIFT_EVENT_JSON=\"$RIFT_EVENT_JSON\"'",
+  "/opt/homebrew/bin/rift-cli subscribe cli --event workspace_changed --command /bin/sh --args -c --args '/Users/prabhat.verma/.config/sketchybar/plugins/mission_control.sh restore; /opt/homebrew/bin/sketchybar --trigger rift_workspace_changed RIFT_EVENT_JSON=\"$RIFT_EVENT_JSON\"'",
+  "/opt/homebrew/bin/rift-cli subscribe cli --event focused_window_changed --command /bin/sh --args -c --args '/Users/prabhat.verma/.config/sketchybar/plugins/mission_control.sh restore'",
   "/opt/homebrew/bin/rift-cli subscribe cli --event windows_changed --command /bin/sh --args -c --args '/opt/homebrew/bin/sketchybar --trigger rift_workspace_changed RIFT_EVENT_JSON=\"$RIFT_EVENT_JSON\"'",
   "/opt/homebrew/bin/rift-cli subscribe cli --event config_changed --command /bin/sh --args -c --args '/opt/homebrew/bin/sketchybar --trigger rift_workspace_changed'"
 ]
@@ -594,7 +595,8 @@ comb1 = "Alt + Shift"
 # "Alt + Ctrl + Shift + Right" = { move_workspace_to_display = { selector = "right", wrap_around = true } }
 
 # if mission control is enabled
-"Alt + Ctrl + M" = "show_mission_control_all"
+"Alt + Ctrl + M" = { "exec" = ["/bin/bash", "/Users/prabhat.verma/.config/sketchybar/plugins/mission_control.sh", "toggle"] }
+"Alt + Ctrl + Shift + M" = { "exec" = ["/bin/bash", "/Users/prabhat.verma/.config/sketchybar/plugins/mission_control.sh", "dismiss"] }
 
 "Alt + Enter" = { "exec" = ["/bin/bash", "-c", "open -a \"/System/Applications/Utilities/Terminal.app\""] }
 
